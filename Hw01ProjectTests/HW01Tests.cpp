@@ -24,19 +24,36 @@ namespace MyClassTest
 			Logger::WriteMessage("In Class Cleanup");
 		}
 
-		
 		TEST_METHOD(TestPowerMethod)
 		{
-			Logger::WriteMessage("In TestPowerMethod");
-			MyClass::power(2, 3);
-			Assert::AreEqual("2","2");
+			Logger::WriteMessage("In TestPowerMethod\n");
+			int results = MyClass::power(2, 3);
+			Assert::AreEqual(8, results);
+			Logger::WriteMessage("Enter a base : 2\nEnter an exponent : 3\n2 to the 3 is 8\n");
+		}
+
+		TEST_METHOD(TestNegativePowerMethod)
+		{
+			Logger::WriteMessage("In TestNegativePowerMethod\n");
+			int results = MyClass::power(2, -3);
+			Assert::AreEqual(0, results);
+			Logger::WriteMessage("Enter a base : 2\nEnter an exponent : 10\n2 to the -3 is 0\n");
+		}
+
+		TEST_METHOD(TestZeroPowerMethod)
+		{
+			Logger::WriteMessage("In TestZeroPowerMethod\n");
+			int results = MyClass::power(2, 0);
+			Assert::AreEqual(1, results);
+			Logger::WriteMessage("Enter a base : 2\nEnter an exponent : 0\n2 to the 0 is 1\n");
 		}
 
 		TEST_METHOD(TestMyLogMethod)
 		{
-			Logger::WriteMessage("In TestMyLogMethod");
-			MyClass::myLog(2, 3);
-			Assert::AreEqual("2", "2");
+			Logger::WriteMessage("In TestMyLogMethod\n");
+			int results = MyClass::myLog(2, 10);
+			Assert::AreEqual(1024, results);
+			Logger::WriteMessage("Enter a base : 2\nEnter an exponent : 10\n2 to the 10 is 1024\n");
 		}
 	};
 }

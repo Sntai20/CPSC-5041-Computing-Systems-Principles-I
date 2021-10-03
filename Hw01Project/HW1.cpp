@@ -1,25 +1,10 @@
-/*
-
-  Antonio Santana
+/*  Antonio Santana
   HW1.cpp : This file contains the 'main' function. 
-  Purpose:
-  Input:
-  Process:
-  Output:
-  Example:
-
-  Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-   Debug program: F5 or Debug > Start Debugging menu
-
-   Tips for Getting Started:
-     1. Use the Solution Explorer window to add/manage files
-     2. Use the Team Explorer window to connect to source control
-     3. Use the Output window to see build output and other messages
-     4. Use the Error List window to view errors
-     5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-     6. In the future, to open this project again, go to File > Open > Project and select the .sln file
-
-*/
+  Purpose: Computes the num to the exp power and the logarithm of a number with a given base.
+  Input: The number – num, and the exponent – exp
+  Output: "Enter a base : 2"
+          "Enter an exponent : 10"
+           "2 to the 10 is 1024"*/
 
 #include <iostream>
 #include <vector>
@@ -30,58 +15,68 @@ using namespace std;
 class MyClass
 {
 public:
-    /*
-
-    Function: power
+    /* Function: power
     Purpose: computes num to the exp power
     Parameters: The number - num, and the exponent -exp
-    Returns: 0 if the exp is negative; 1 if exp is 0; raise num to the exp power otherwise.
-
-     */
+    Returns: 0 if the exp is negative; 1 if exp is 0; raise num to the exp power otherwise.*/
     static int power(int num, int exp);
 
-    /*
-
-    Function: myLog
+    /* Function: myLog
     Purpose: computes num to the exp power
     Parameters: The number - num, and the exponent -exp
-    Returns: 0 if the exp is negative; 1 if exp is 0; raise num to the exp power otherwise.
-
-     */
+    Returns: 0 if the exp is negative; 1 if exp is 0; raise num to the exp power otherwise.*/
     static int myLog(int num, int exp);
 };
 
-/*
-* Implementation starts here.
-*/
+/* Implementation starts here.
+* 
+* The power function should compute numexp and return the answer as an int. If exp is negative, 
+* power should return 0. If it is 0 then power should return 1. You should use a loop to compute 
+* this (and not pow (x, y) or anything else in the Math library <cmath>). You can use the following 
+* comment to describe your power function.
+* 
+*  Function:      power
+*  Purpose:       computes num to the exp power
+*  Parameters:    The number – num, and the exponent – exp
+*  Returns:       0 if exp is negative; 1 if exp is 0; raise num to the exp power otherwise.*/
 int MyClass::power(int num, int exp)
 {
-    cout << num << "power function" << exp << endl;
-    return num;
+    int results = 1;
+    if (!(exp < 0))
+    {
+        for (int i = 0; i < exp; i++)
+        {
+            results *= num;
+        }
+    }
+    else
+    {
+        results = 0;
+    }
+
+    return results;
 }
 
+/* This function should return the answer as an int, rounded down. It must utilize the function 
+* from Task 1 (and not any functions from <cmath>). (Recall that if a^b = c, then logac = b). 
+* Revise your main function to prompt the user for one power call and one myLog call. The myLog 
+* function should compute numexp and return the answer as an int. 
+*
+*  Function:      myLog
+*  Purpose:       computes the logarithm of a number with a given base.
+*  Parameters:    The number – num, and the exponent – exp
+*  Returns:       0 if exp is negative; 1 if exp is 0; raise num to the exp power otherwise.*/
 int MyClass::myLog(int num, int exp)
 {
-    vector<string> msg{ "Hello", "C++", "World", "from", "VS Code", "and the C++ extension!" };
-
-    for (const string& word : msg)
-    {
-        cout << word << " ";
-    }
-    cout << endl;
-    cout << num << " myLog function " << exp << endl;
-    return num;
+    return power(num, exp);
 }
 
-/*
-*  Program execution begins and ends there.
-*/
+/* Program execution begins and ends there. */
 int main()
 {
     MyClass mc;
-    mc.power(3, 2);
-    mc.myLog(5, 2);
-
+    cout << mc.power(2, 3) << endl;
+    cout << mc.myLog(2, 10) << endl;
 }
 
 
