@@ -68,16 +68,47 @@ int MyClass::power(int num, int exp)
 *  Returns:       0 if exp is negative; 1 if exp is 0; raise num to the exp power otherwise.*/
 int MyClass::myLog(int num, int exp)
 {
-    return power(num, exp);
+    int standard = 1;
+    int results = power(num, standard);
+
+    while (results != exp)
+    {
+        if (results >= exp)
+        {
+            return standard - 1;
+        }
+        else
+        {
+            standard += 1;
+            results = power(num, standard);
+        }
+    }
+    return standard;
+
 }
 
 /* Program execution begins and ends there. */
 int main()
 {
     MyClass mc;
-    cout << mc.power(2, 3) << endl;
-    cout << mc.myLog(2, 10) << endl;
+
+    int base, exp, number, powResult, logResult;
+
+    cout << "Enter a base: ";
+    cin >> base;
+    cout << "Enter an exponent: ";
+    cin >> exp;
+    powResult = mc.power(base, exp);
+    cout << base << " to the " << exp << " is " << powResult;
+
+    cout << endl;
+    cout << endl;
+
+    cout << "Enter a base: ";
+    cin >> base;
+    cout << "Enter an number: ";
+    cin >> number;
+    logResult = mc.myLog(base, number);
+    cout << "Log of " << number << " in base " << base << " is " << logResult;
+
 }
-
-
-

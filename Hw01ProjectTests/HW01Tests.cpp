@@ -51,9 +51,9 @@ namespace MyClassTest
 		TEST_METHOD(TestMyLogMethod)
 		{
 			Logger::WriteMessage("In TestMyLogMethod\n");
-			int results = MyClass::myLog(2, 10);
-			Assert::AreEqual(1024, results);
-			Logger::WriteMessage("Enter a base : 2\nEnter an exponent : 10\n2 to the 10 is 1024\n");
+			int results = MyClass::myLog(5, 777);
+			Assert::AreEqual(4, results);
+			Logger::WriteMessage("Enter a base : 5\nEnter an exponent : 777\n2 to the 10 is 1024\n");
 		}
 	};
 }
