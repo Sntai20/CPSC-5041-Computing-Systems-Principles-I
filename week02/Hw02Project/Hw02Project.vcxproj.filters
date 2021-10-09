@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Hw01Project.cpp">
+    <ClCompile Include="Hw02Project.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
