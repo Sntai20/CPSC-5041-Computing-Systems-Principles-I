@@ -71,5 +71,29 @@ namespace Hw02ProjectTests
 			Logger::WriteMessage("Enter a decimal number : 0\n0 converted to binary is 0 \n");
 			Assert::AreEqual(assert, results);
 		}
+
+		TEST_METHOD(TestdecimalToBinaryVectorWithANegativeValueMethod)
+		{
+			Logger::WriteMessage("In TestdecimalToBinaryVectorWithZeroValueMethod\n");
+			MyClass mc;
+			vector<int> binaryVectorAssert;
+			vector<int> binaryVectorResults = mc.decimalToBinaryVector(-1);
+			bool assert = true;
+			bool results;
+
+			if (binaryVectorAssert == binaryVectorResults)
+			{
+				std::cout << "Both vectors are equal";
+				results = true;
+			}
+			else
+			{
+				std::cout << "Both vectors are not equal";
+				results = false;
+			}
+
+			Logger::WriteMessage("Enter a decimal number : -1\n0 converted to binary is 0 \n");
+			Assert::AreEqual(assert, results);
+		}
 	};
 }

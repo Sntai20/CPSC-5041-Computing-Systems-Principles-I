@@ -11,16 +11,16 @@ using namespace std;
 class MyClass
 {
 public:
-	static std::vector<int> decimalToBinaryVector(int n)
+	static std::vector<int> decimalToBinaryVector(int number)
 	{
 		// vector to store a binary number
 		std::vector<int> binaryVector;
 
-		while (n > 0)
+		while (number > 0)
 		{
 			// storing remainder in binary vector
-			binaryVector.push_back(n % 2);
-			n = n / 2;
+			binaryVector.push_back(number % 2);
+			number = number / 2;
 		}
 		return binaryVector;
 	}
@@ -31,21 +31,37 @@ public:
 		for (rvIter = binaryVector.rbegin(); rvIter != binaryVector.rend(); rvIter++)
 			cout << *rvIter << " ";
 	}
+
+	static bool isValid(int number)
+	{
+		if (!(number >= 0) )
+		{
+			cout << "Please enter a valid number, that is greater than or equal to zero.";
+			return false;
+		}
+		return true;
+	}
 };
 
 
 //  Program execution begins and ends there.
 int main()
 {
-	int number = 2048;
 	MyClass mc;
 	cout << "Please enter a decimal number to convert to binary: ";
-	vector<int> binary = mc.decimalToBinaryVector(number);
-	
-	// Display the results.
-	cout << "The binary number is: ( ";
-	mc.printVector(binary);
-	cout << ")." << endl;
+	int userInput; 
+	cin >> userInput;
+
+	if (mc.isValid(userInput))
+	{
+		int number = userInput;
+		vector<int> binary = mc.decimalToBinaryVector(number);
+
+		// Display the results.
+		cout << "The binary number is: ( ";
+		mc.printVector(binary);
+		cout << ")." << endl;
+	}
 
 	return 0;
 }
