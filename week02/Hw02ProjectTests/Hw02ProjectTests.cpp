@@ -95,5 +95,53 @@ namespace Hw02ProjectTests
 			Logger::WriteMessage("Enter a decimal number : -1\n0 converted to binary is 0 \n");
 			Assert::AreEqual(assert, results);
 		}
+
+		TEST_METHOD(TestdecimalToBinaryVectorQ1Method)
+		{
+			Logger::WriteMessage("In TestdecimalToBinaryVectorMethod\n");
+			MyClass mc;
+			vector<int> binaryVectorAssert = { 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1 };
+			vector<int> binaryVectorResults = mc.decimalToBinaryVector(2021);
+			bool assert = true;
+			bool results;
+
+			if (binaryVectorAssert == binaryVectorResults)
+			{
+				std::cout << "Both vectors are equal";
+				results = true;
+			}
+			else
+			{
+				std::cout << "Both vectors are not equal";
+				results = false;
+			}
+
+			Logger::WriteMessage("Enter a decimal number : 2021\nBinary number is 1 1 1 1 1 1 0 0 1 0 1 \n");
+			Assert::AreEqual(assert, results);
+		}
+
+		TEST_METHOD(TestdecimalToBinaryVectorQ2Method)
+		{
+			Logger::WriteMessage("In TestdecimalToBinaryVectorMethod\n");
+			MyClass mc;
+			vector<int> binaryVectorAssert = { 1, 1, 0, 1, 1, 0, 1, 1, 1, 1 };
+			vector<int> binaryVectorResults = mc.decimalToBinaryVector(987);
+			bool assert = true;
+			bool results;
+
+			if (binaryVectorAssert == binaryVectorResults)
+			{
+				std::cout << "Both vectors are equal";
+				results = true;
+			}
+			else
+			{
+				std::cout << "Both vectors are not equal";
+				results = false;
+			}
+
+			Logger::WriteMessage("Enter a decimal number : 987\nBinary number is 1 1 1 1 0 1 1 0 1 1 \n");
+			Assert::AreEqual(assert, results);
+		}
 	};
 }

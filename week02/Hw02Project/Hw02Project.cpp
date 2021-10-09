@@ -1,6 +1,6 @@
-// Hw02Project.cpp : This file contains the 'main' function.
-// C++ program to convert a decimal
-// number to binary number
+ //Hw02Project.cpp : This file contains the 'main' function.
+ //C++ program to convert a decimal
+ //number to binary number
 
 #include <iostream>
 #include <vector>
