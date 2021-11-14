@@ -1,7 +1,3 @@
-// Remembering to define _CRT_RAND_S prior
-// to inclusion statement.
-//#define _CRT_RAND_S
-
 #include <stdlib.h>
 #include "pch.h"
 #include "CppUnitTest.h"

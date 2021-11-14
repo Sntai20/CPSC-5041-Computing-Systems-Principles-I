@@ -1,5 +1,5 @@
 /* Antonio Santana
-* Hw06ProjectOOP.cpp : This file contains the 'main' function.
+* CaesarCipher.cpp : This file contains the 'main' function.
 * Purpose: C++ program to sort and calculate the average student's score.
 * Input:
 * Output:
@@ -27,8 +27,6 @@
 #define _CRT_RAND_S
 
 #include <stdlib.h> // Required for rand_s
-//#include <stdio.h>
-//#include <limits.h>
 #include "CaesarCipher.h"
 #include <cstring>
 #include <stdexcept>
