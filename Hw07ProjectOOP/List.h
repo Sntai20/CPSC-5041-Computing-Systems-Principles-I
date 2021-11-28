@@ -115,7 +115,7 @@ public:
 
 private:
 	T* list;           // pointer to the array
-	int capacity;        // capacity of array
+    __int16 capacity;        // capacity of array
 	int numElements;     // number of elements in array
 
     // called to resize array when full

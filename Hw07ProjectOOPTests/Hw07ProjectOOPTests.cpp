@@ -109,16 +109,145 @@ namespace Hw07ProjectOOPTests
 			Assert::AreEqual(assert, results);
 		}
 
-		/*TEST_METHOD(TestOverloadMethod)
+		TEST_METHOD(TestCopyConstructorMethodUsingDoubles)
 		{
-			Logger::WriteMessage("In TestEncryptMethod. The clear text word shold match the decrypted word.");
-			int countNumber = 2;
+			Logger::WriteMessage("In TestAddMethodUsingDoubles.");
+			const int SIZE = 10;
 
-			CaesarCipher cc;
-			cc.operator++(countNumber);
-			int caesarCipherCount = cc.getCount();
+			// create list of integers and doubles
+			List<double> doubleListResult(SIZE);
 
-			Assert::AreEqual(3, caesarCipherCount);
-		}*/
+			// populate lists
+			for (int i = 0; i < SIZE; i++)
+			{
+				doubleListResult.add(i * 2.14);
+			}
+
+			// Test List
+			List<double> doubleListAssert(SIZE);
+			double testArr[SIZE] = { 0, 2, 4, 6, 8, 10, 12, 14, 17, 19 };
+
+			for each (int testValue in testArr)
+			{
+				doubleListAssert.add(testValue);
+			}
+
+			bool assert = true;
+			bool results;
+			double assertTotal = 0;
+			double resultTotal = 0;
+
+			for (int j = 0; j < SIZE; j++)
+			{
+				assertTotal += doubleListAssert.get(j);
+				resultTotal += doubleListResult.get(j);
+			}
+
+			if (assertTotal == resultTotal)
+			{
+				std::cout << "Both values are equal";
+				results = true;
+			}
+			else
+			{
+				std::cout << "Both values are not equal";
+				results = false;
+			}
+			Assert::AreEqual(assert, results);
+		}
+
+		TEST_METHOD(TestOverloadAssignmentOperatorMethod)
+		{
+			Logger::WriteMessage("In TestAddMethodUsingDoubles.");
+			const int SIZE = 10;
+
+			// create list of integers and doubles
+			List<double> doubleListResult(SIZE);
+
+			// populate lists
+			for (int i = 0; i < SIZE; i++)
+			{
+				doubleListResult.add(i * 2.14);
+			}
+
+			// Test List
+			List<double> doubleListAssert(SIZE);
+			double testArr[SIZE] = { 0, 2, 4, 6, 8, 10, 12, 14, 17, 19 };
+
+			for each (int testValue in testArr)
+			{
+				doubleListAssert.add(testValue);
+			}
+
+			bool assert = true;
+			bool results;
+			double assertTotal = 0;
+			double resultTotal = 0;
+
+			for (int j = 0; j < SIZE; j++)
+			{
+				assertTotal += doubleListAssert.get(j);
+				resultTotal += doubleListResult.get(j);
+			}
+
+			if (assertTotal == resultTotal)
+			{
+				std::cout << "Both values are equal";
+				results = true;
+			}
+			else
+			{
+				std::cout << "Both values are not equal";
+				results = false;
+			}
+			Assert::AreEqual(assert, results);
+		}
+
+		TEST_METHOD(TestOverloadBracketOperatorMethod)
+		{
+			Logger::WriteMessage("In TestAddMethodUsingDoubles.");
+			const int SIZE = 10;
+
+			// create list of integers and doubles
+			List<double> doubleListResult(SIZE);
+
+			// populate lists
+			for (int i = 0; i < SIZE; i++)
+			{
+				doubleListResult.add(i * 2.14);
+			}
+
+			// Test List
+			List<double> doubleListAssert(SIZE);
+			double testArr[SIZE] = { 0, 2, 4, 6, 8, 10, 12, 14, 17, 19 };
+
+			for each (int testValue in testArr)
+			{
+				doubleListAssert.add(testValue);
+			}
+
+			bool assert = true;
+			bool results;
+			double assertTotal = 0;
+			double resultTotal = 0;
+
+			for (int j = 0; j < SIZE; j++)
+			{
+				assertTotal += doubleListAssert.get(j);
+				resultTotal += doubleListResult.get(j);
+			}
+
+			if (assertTotal == resultTotal)
+			{
+				std::cout << "Both values are equal";
+				results = true;
+			}
+			else
+			{
+				std::cout << "Both values are not equal";
+				results = false;
+			}
+			Assert::AreEqual(assert, results);
+		}
 	};
 }
