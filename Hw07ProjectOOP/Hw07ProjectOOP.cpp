@@ -5,7 +5,6 @@
 * https://docs.microsoft.com/en-us/cpp/cpp/source-code-organization-cpp-templates?view=msvc-170
 */ 
 
-
 #include <iostream>
 #include "List.h"
 

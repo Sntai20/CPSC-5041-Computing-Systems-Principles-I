@@ -21,14 +21,14 @@ class List
 {
 public:
     // Constructor
-    List(T cap)
+    List(int cap)
     {
         // assign numElements and capacity (from obj) 
         numElements = 0;
         capacity = cap;
 
         // allocate memory based on capacity
-        list = new int[cap];
+        list = new T[cap];
 
         // assign all values to zero
         for (int i = 0; i < cap; i++)
@@ -50,7 +50,7 @@ public:
         capacity = obj.capacity;
 
         // allocate memory based on capacity
-        list = new int[capacity];
+        list = new T[capacity];
 
         // copy over elements (from obj)
         for (int i = 0; i < numElements; i++)
@@ -80,14 +80,14 @@ public:
     }
 
     // Overloaded [] operator
-    int& operator[](const int& index)
+    T& operator[](const int& index)
     {
         assert(index >= 0 && index < capacity);
         return list[index];
     }
 
     // add element to array
-    void add(int element)
+    void add(T element)
     {
         // if the array is full, resize
         if (numElements >= capacity)
@@ -114,7 +114,7 @@ public:
     }
 
 private:
-	int* list;           // pointer to the array
+	T* list;           // pointer to the array
 	int capacity;        // capacity of array
 	int numElements;     // number of elements in array
 
@@ -125,7 +125,7 @@ private:
         capacity *= 2;
 
         // create new array based on updated capacity
-        int* tempArr = new int[capacity];
+        T* tempArr = new T[capacity];
 
         // copy old array values to new array
         int i = 0;
