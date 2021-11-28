@@ -52,40 +52,81 @@ string CaesarCipher::decrypt( string s )
 	return encryptDecrypt( s, false );
 }
 
-//CaesarCipher& CaesarCipher::operator=(const CaesarCipher&)
-//{
-//	// TODO: insert return statement here
-//}
-//
-//CaesarCipher CaesarCipher::operator+(const CaesarCipher&)
-//{
-//	return CaesarCipher();
-//}
-//
-//bool CaesarCipher::operator==(const CaesarCipher&)
-//{
-//	return false;
-//}
-//
-//bool CaesarCipher::operator<(const CaesarCipher&)
-//{
-//	return false;
-//}
-//
-//bool CaesarCipher::operator>(const CaesarCipher&)
-//{
-//	return false;
-//}
-//
-//CaesarCipher& CaesarCipher::operator++()
-//{
-//	// TODO: insert return statement here
-//}
-//
-//CaesarCipher CaesarCipher::operator++(int)
-//{
-//	return CaesarCipher();
-//}
+// Implement overloaded operators
+// - (3pt) includes +
+// -(1pt each) includes == , < >
+// -(2pt each) include++ (pre / postfix)
+CaesarCipher& CaesarCipher::operator=( const CaesarCipher& cc )
+{
+    if (this == &cc) 
+    {
+        return *this;
+    }
+    shift = cc.shift;
+    return *this;
+}
+
+CaesarCipher CaesarCipher::operator+( const CaesarCipher& cc )
+{
+    CaesarCipher temp;
+    temp.shift = shift + cc.shift;
+    if (temp.shift > MAX_SHIFT) 
+    {
+        temp.shift -= MAX_SHIFT;
+        return temp;
+    }
+    else return temp;
+}
+
+bool CaesarCipher::operator==( const CaesarCipher& cc )
+{
+    if (this == &cc) 
+    {
+        return true;
+    }
+    else if (shift == cc.shift)
+        return true;
+    else return false;
+}
+
+bool CaesarCipher::operator<( const CaesarCipher& cc )
+{
+    if (shift < cc.shift)
+        return true;
+    else return false;
+}
+
+bool CaesarCipher::operator>( const CaesarCipher& cc )
+{
+    if (shift > cc.shift)
+        return true;
+    else return false;
+}
+
+CaesarCipher& CaesarCipher::operator++()
+{
+    if (shift == MAX_SHIFT) 
+    {
+        shift = 1;
+    }
+    else 
+    {
+        shift++;
+    }
+    return *this;
+}
+
+CaesarCipher CaesarCipher::operator++( int )
+{
+    CaesarCipher temp = *this;
+    if (this->shift == MAX_SHIFT) {
+        this->shift = 1;
+    }
+    else {
+        ++* this;
+    }
+    return temp;
+}
 
 int CaesarCipher::getShift()
 {

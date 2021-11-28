@@ -37,6 +37,7 @@ public:
     bool operator > (const CaesarCipher&);
     CaesarCipher& operator ++ ();
     CaesarCipher operator ++ (int);
+    
 private:
     int shift;
     const int OFFSET_MIN = 32;
@@ -44,6 +45,8 @@ private:
     int getShift();
     string encryptDecrypt(string, bool);
     bool isPositionInRange(int);
+    static bool isSeeded;
+    const int MAX_SHIFT = OFFSET_MAX - OFFSET_MIN;
 };
 
 #endif
