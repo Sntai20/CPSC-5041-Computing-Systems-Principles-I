@@ -58,7 +58,7 @@ public:
     }
 
     // Overloaded assignment operator
-    List<T>& operator=(const List& obj)
+    List<T>& operator=(const List<T>& obj)
     {
         if (this != &obj) // only assign if this != &obj
         {
@@ -70,7 +70,7 @@ public:
             capacity = obj.capacity;
 
             // allocate memory based on capacity
-            list = new int[capacity];
+            list = new T[capacity];
 
             // copy over elements (from obj)
             for (int i = 0; i < numElements; i++)
@@ -100,7 +100,7 @@ public:
     }
 
     // returns element at given index
-    int get(int index) const
+    T get(int index) const
     {
         assert(index >= 0 && index < capacity);
         return list[index];
